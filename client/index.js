@@ -1,20 +1,5 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import { AppContainer } from 'react-hot-loader'
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./components/App";
 
-import Root from './components/Root'
-
-const render = Component => {
-  ReactDOM.render(
-    <AppContainer>
-      <Component />
-    </AppContainer>,
-    document.getElementById('root')
-  )
-}
-
-render(Root)
-
-if (module.hot) {
-  module.hot.accept('./components/Root', () => { render(Root) })
-}
+ReactDOM.render(<App />, document.getElementById("root"));
