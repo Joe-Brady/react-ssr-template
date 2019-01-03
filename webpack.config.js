@@ -1,6 +1,7 @@
 const webpack = require("webpack");
 
 module.exports = {
+  mode: "development",
   entry: {
     app: [
       "react-hot-loader/patch",
@@ -15,8 +16,5 @@ module.exports = {
     path: "/client/dist",
     filename: "[name].js"
   },
-  plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoEmitOnErrorsPlugin()
-  ]
+  plugins: [new webpack.HotModuleReplacementPlugin()]
 };
