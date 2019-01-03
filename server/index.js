@@ -11,17 +11,18 @@ app.use(webpackDevMiddleware(compiler));
 app.use(webpackHotMiddleware(compiler));
 
 app.get("*", (req, res) => {
-  res.send(`<html>
-  <head>
-    <title>React Hot Loader Minimal Boilerplate</title>
-  </head>
-  <body>
-    <div id="root"></div>
+  res.send(
+    `<html>
+      <head>
+        <title>React Hot Loader Minimal Boilerplate</title>
+      </head>
+      <body>
+        <div id="root"></div>
 
-    <script src="app.js"></script>
-  </body>
-</html>
-`);
+        <script src="app.js"></script>
+      </body>
+    </html>`
+  );
 });
 
 app.listen(3000, err => {

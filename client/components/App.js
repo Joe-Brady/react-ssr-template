@@ -1,11 +1,7 @@
 import React from "react";
 import { hot } from "react-hot-loader/root";
 import Loadable from "react-loadable";
-
-const RandomNumberLoadable = Loadable({
-  loader: () => import("./RandomNumber"),
-  loading: () => <div>Loading...</div>
-});
+import RandomNumber from "./RandomNumber";
 
 const ClockLoadable = Loadable({
   loader: () => import("./Clock"),
@@ -20,8 +16,10 @@ const ChangeStateLoadable = Loadable({
 const App = () => (
   <div>
     <p>This is App.js</p>
+    {/* Standard component, not code-split, pre-loaded */}
+    <RandomNumber />
+    {/* Code-split components - only loaded when this area is rendered */}
     <ChangeStateLoadable />
-    <RandomNumberLoadable />
     <ClockLoadable />
   </div>
 );
