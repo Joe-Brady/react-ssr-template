@@ -2,8 +2,9 @@
   "name": "react-ssr-code-splitting-template",
   "version": "1.0.0",
   "scripts": {
+    "build:server": "webpack --config webpack.server.js",
     "build:client": "webpack --config webpack.client.js",
-    "start": "node server"
+    "start": "node ./server/server.bundle.js"
   },
   "license": "ISC",
   "dependencies": {
@@ -22,6 +23,7 @@
     "webpack": "4.28.3",
     "webpack-cli": "3.2.0",
     "webpack-dev-middleware": "3.4.0",
-    "webpack-hot-middleware": "2.21.0"
+    "webpack-hot-middleware": "2.21.0",
+    "webpack-node-externals": "^1.7.2"
   }
 }
