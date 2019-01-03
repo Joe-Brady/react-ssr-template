@@ -3,6 +3,7 @@ const webpack = require("webpack");
 const config = require("../webpack.client.js");
 const webpackDevMiddleware = require("webpack-dev-middleware");
 const webpackHotMiddleware = require("webpack-hot-middleware");
+import ReactDOMServer from "react-dom/server";
 
 const app = express();
 const compiler = webpack(config);
@@ -18,7 +19,6 @@ app.get("*", (req, res) => {
       </head>
       <body>
         <div id="root"></div>
-
         <script src="app.js"></script>
       </body>
     </html>`

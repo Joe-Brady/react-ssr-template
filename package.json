@@ -4,7 +4,7 @@
   "scripts": {
     "build:server": "webpack --config webpack.server.js",
     "build:client": "webpack --config webpack.client.js",
-    "start": "node ./server/server.bundle.js"
+    "start": "node ./dist/server.bundle.js"
   },
   "license": "ISC",
   "dependencies": {

@@ -10,7 +10,7 @@ module.exports = {
     rules: [{ test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" }]
   },
   output: {
-    path: path.resolve(__dirname, "server"),
+    path: path.resolve(__dirname, "dist"),
     filename: "server.bundle.js"
   },
   plugins: []
