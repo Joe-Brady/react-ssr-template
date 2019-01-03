@@ -1,3 +1,4 @@
+const path = require("path");
 const webpack = require("webpack");
 
 module.exports = {
@@ -6,14 +7,14 @@ module.exports = {
     app: [
       "react-hot-loader/patch",
       "webpack-hot-middleware/client",
-      "./client/index"
+      path.resolve(__dirname, "client/index.js")
     ]
   },
   module: {
     rules: [{ test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" }]
   },
   output: {
-    path: "/client/dist",
+    path: path.resolve(__dirname, "./client/dist"),
     filename: "[name].js"
   },
   plugins: [new webpack.HotModuleReplacementPlugin()]

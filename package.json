@@ -2,6 +2,7 @@
   "name": "react-ssr-code-splitting-template",
   "version": "1.0.0",
   "scripts": {
+    "build:client": "webpack --config webpack.client.js",
     "start": "node server"
   },
   "license": "ISC",
