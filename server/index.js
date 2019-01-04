@@ -16,7 +16,7 @@ const compiler = webpack(config);
 app.use(webpackDevMiddleware(compiler));
 app.use(webpackHotMiddleware(compiler));
 
-app.get("*", (req, res) => {
+app.get("/", (req, res) => {
   let modules = [];
 
   let html = ReactDOMServer.renderToString(
@@ -34,13 +34,12 @@ app.get("*", (req, res) => {
       </head>
       <body>
         <div id="root">${html}</div>
-        <script src="/dist/manifest.js"></script>
         ${bundles
           .map(bundle => {
-            return `<script src="/dist/${bundle.file}"></script>`;
+            return `<script src="${bundle.file}"></script>`;
           })
           .join("\n")}
-        <script src="app.js"></script>
+        <script src="client.bundle.js"></script>
       </body>
     </html>`
   );

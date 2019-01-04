@@ -16,9 +16,7 @@ const ChangeStateLoadable = Loadable({
 const App = () => (
   <div>
     <p>This is App.js</p>
-    {/* Standard component, not code-split, pre-loaded */}
     <RandomNumber />
-    {/* Code-split components - only loaded when this area is rendered */}
     <ChangeStateLoadable />
     <ClockLoadable />
   </div>

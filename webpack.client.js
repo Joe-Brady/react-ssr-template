@@ -2,29 +2,33 @@ const path = require("path");
 const webpack = require("webpack");
 const { ReactLoadablePlugin } = require("react-loadable/webpack");
 
-module.exports = {
-  mode: "development",
+const developmentMode = process.env.NODE_ENV === "development";
+
+const webpackConfigClient = {
+  mode: developmentMode ? "development" : "production",
   entry: {
-    app: [
-      "react-hot-loader/patch",
-      "webpack-hot-middleware/client",
-      "./client/index.js"
-    ]
+    app: ["./client/index.js"]
   },
   module: {
     rules: [{ test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" }]
   },
-  // output: {
-  //   path: path.resolve(__dirname, "dist"),
-  //   filename: "client.bundle.js"
-  // },
+  output: {
+    path: path.resolve(__dirname, "dist"),
+    filename: "client.bundle.js"
+  },
   plugins: [
     new ReactLoadablePlugin({
       filename: "./dist/react-loadable.json"
-    }),
-    new webpack.optimize.LimitChunkCountPlugin({
-      maxChunks: 1
-    }),
-    new webpack.HotModuleReplacementPlugin()
+    })
   ]
 };
+
+if (developmentMode) {
+  webpackConfigClient.entry.app.unshift(
+    "react-hot-loader/patch",
+    "webpack-hot-middleware/client"
+  );
+  webpackConfigClient.plugins.push(new webpack.HotModuleReplacementPlugin());
+}
+
+module.exports = webpackConfigClient;
