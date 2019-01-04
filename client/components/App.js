@@ -4,12 +4,12 @@ import Loadable from "react-loadable";
 import RandomNumber from "./RandomNumber";
 
 const ClockLoadable = Loadable({
-  loader: () => import("./Clock"),
+  loader: () => import("./Clock" /* webpackChunkName: 'Clock' */),
   loading: () => <div>Loading...</div>
 });
 
 const ChangeStateLoadable = Loadable({
-  loader: () => import("./ChangeState"),
+  loader: () => import("./ChangeState" /* webpackChunkName: 'ChangeState' */),
   loading: () => <div>Loading...</div>
 });
 

@@ -25,6 +25,10 @@ class Clock extends React.Component {
       <div>
         <h1>Clock component:</h1>
         <p>It is {this.state.date.toLocaleTimeString()}.</p>
+        <p>
+          This component is a webpack 'chunk' (via dynamic imports and code
+          splitting). See the web inspector's sources tab.
+        </p>
       </div>
     );
   }

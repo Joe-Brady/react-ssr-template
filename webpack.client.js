@@ -14,7 +14,8 @@ const webpackConfigClient = {
   },
   output: {
     path: path.resolve(__dirname, "dist"),
-    filename: "client.bundle.js"
+    filename: "client.bundle.js",
+    chunkFilename: "[name].chunk.js"
   },
   plugins: [
     new ReactLoadablePlugin({
