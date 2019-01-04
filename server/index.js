@@ -1,8 +1,4 @@
-const express = require("express");
-const webpack = require("webpack");
-const config = require("../webpack.client.js");
-const webpackDevMiddleware = require("webpack-dev-middleware");
-const webpackHotMiddleware = require("webpack-hot-middleware");
+import express from "express";
 import React from "react";
 import ReactDOMServer from "react-dom/server";
 import App from "../client/components/App";
@@ -11,10 +7,19 @@ import { getBundles } from "react-loadable/webpack";
 import stats from "../dist/react-loadable.json";
 
 const app = express();
-const compiler = webpack(config);
 
-app.use(webpackDevMiddleware(compiler));
-app.use(webpackHotMiddleware(compiler));
+const developmentMode = process.env.NODE_ENV === "development";
+
+if (developmentMode) {
+  const webpack = require("webpack");
+  const config = require("../webpack.client.js");
+  const webpackDevMiddleware = require("webpack-dev-middleware");
+  const webpackHotMiddleware = require("webpack-hot-middleware");
+
+  const compiler = webpack(config);
+  app.use(webpackDevMiddleware(compiler));
+  app.use(webpackHotMiddleware(compiler));
+}
 
 app.get("/", (req, res) => {
   let modules = [];
