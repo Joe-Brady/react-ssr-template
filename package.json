@@ -1,5 +1,5 @@
 {
-  "name": "react-ssr-code-splitting-template",
+  "name": "react-ssr-template",
   "version": "1.0.0",
   "scripts": {
     "build:client": "webpack --config webpack.client.js",
