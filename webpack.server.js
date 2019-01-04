@@ -17,6 +17,9 @@ const webpackConfigServer = {
     filename: "server.bundle.js"
   },
   plugins: [
+    new webpack.ProvidePlugin({
+      React: "react"
+    }),
     new webpack.optimize.LimitChunkCountPlugin({
       maxChunks: 1
     })

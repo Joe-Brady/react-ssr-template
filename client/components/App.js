@@ -1,16 +1,16 @@
-import React from "react";
 import { hot } from "react-hot-loader/root";
 import Loadable from "react-loadable";
+import Loading from "./Loading";
 import RandomNumber from "./RandomNumber";
 
 const ClockLoadable = Loadable({
   loader: () => import("./Clock" /* webpackChunkName: 'Clock' */),
-  loading: () => <div>Loading...</div>
+  loading: () => <Loading />
 });
 
 const ChangeStateLoadable = Loadable({
   loader: () => import("./ChangeState" /* webpackChunkName: 'ChangeState' */),
-  loading: () => <div>Loading...</div>
+  loading: () => <Loading />
 });
 
 const App = () => (

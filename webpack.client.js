@@ -18,6 +18,9 @@ const webpackConfigClient = {
     chunkFilename: "[name].chunk.js"
   },
   plugins: [
+    new webpack.ProvidePlugin({
+      React: "react"
+    }),
     new ReactLoadablePlugin({
       filename: "./dist/react-loadable.json"
     })

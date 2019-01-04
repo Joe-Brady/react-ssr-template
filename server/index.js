@@ -1,5 +1,4 @@
 import express from "express";
-import React from "react";
 import ReactDOMServer from "react-dom/server";
 import Loadable from "react-loadable";
 import { getBundles } from "react-loadable/webpack";
