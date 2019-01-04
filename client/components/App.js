@@ -5,12 +5,12 @@ import RandomNumber from "./RandomNumber";
 
 const ClockLoadable = Loadable({
   loader: () => import("./Clock" /* webpackChunkName: 'Clock' */),
-  loading: () => <Loading />
+  loading: () => Loading
 });
 
 const ChangeStateLoadable = Loadable({
   loader: () => import("./ChangeState" /* webpackChunkName: 'ChangeState' */),
-  loading: () => <Loading />
+  loading: () => Loading
 });
 
 const App = () => (
