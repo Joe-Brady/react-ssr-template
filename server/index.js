@@ -21,7 +21,9 @@ if (developmentMode) {
   app.use(webpackHotMiddleware(compiler));
 }
 
-app.get("/", (req, res) => {
+app.use(express.static("dist"));
+
+app.get("*", (req, res) => {
   let modules = [];
 
   let html = ReactDOMServer.renderToString(

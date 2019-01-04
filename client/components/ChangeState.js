@@ -5,17 +5,17 @@ class ChangeState extends React.Component {
     super(props);
     this.state = { counter: 0 };
 
-    this.AddOne = this.AddOne.bind(this);
-    this.SubtractOne = this.SubtractOne.bind(this);
+    this.addOne = this.addOne.bind(this);
+    this.subtractOne = this.subtractOne.bind(this);
   }
 
-  AddOne() {
+  addOne() {
     this.setState({
       counter: this.state.counter + 1
     });
   }
 
-  SubtractOne() {
+  subtractOne() {
     this.setState({
       counter: this.state.counter - 1
     });
@@ -26,8 +26,8 @@ class ChangeState extends React.Component {
       <div>
         <h1>Change state component:</h1>
         <p>Current count: {this.state.counter}</p>
-        <button onClick={this.AddOne}>Add one</button>
-        <button onClick={this.SubtractOne}>Subtract one</button>
+        <button onClick={this.addOne}>Add one</button>
+        <button onClick={this.subtractOne}>Subtract one</button>
       </div>
     );
   }
