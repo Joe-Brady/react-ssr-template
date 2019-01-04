@@ -1,7 +1,7 @@
 import { Route } from "react-router-dom";
-import Loadable from "react-loadable";
-import Loading from "../components/Loading";
 import styled from "styled-components";
+import Loadable from "react-loadable";
+import { Loading } from "./";
 
 const StyledMain = styled("main")`
   padding: ${props => props.theme.spacing.large};

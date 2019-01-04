@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Link from "./atoms/Link";
+import { Link } from "./atoms";
 
 const NavContainer = styled("nav")`
   padding: ${props => props.theme.spacing.medium}

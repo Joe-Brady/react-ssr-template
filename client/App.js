@@ -1,8 +1,6 @@
 import { hot } from "react-hot-loader/root";
-import Nav from "./Nav";
-import Main from "./Main";
-
 import { createGlobalStyle, ThemeProvider } from "styled-components";
+import { Nav, Main } from "./components";
 
 const GlobalStyle = createGlobalStyle`
   html, body {

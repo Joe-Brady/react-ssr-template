@@ -1,12 +1,12 @@
 import express from "express";
 import ReactDOMServer from "react-dom/server";
+import { StaticRouter } from "react-router-dom";
 import { ServerStyleSheet } from "styled-components";
-import Loadable from "react-loadable";
 import { getBundles } from "react-loadable/webpack";
+import Loadable from "react-loadable";
 import stats from "../dist/react-loadable.json";
 import createFullPageHtml from "../client/document";
-import App from "../client/components/App";
-import { StaticRouter } from "react-router-dom";
+import App from "../client/App";
 
 const app = express();
 
@@ -50,7 +50,7 @@ app.get("*", (req, res) => {
 });
 
 Loadable.preloadAll().then(() => {
-  app.listen(4000, () => {
-    console.log("Running on http://localhost:4000/");
+  app.listen(3000, () => {
+    console.log("Running on http://localhost:3000/");
   });
 });

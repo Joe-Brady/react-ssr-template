@@ -1,7 +1,7 @@
 import ReactDOM from "react-dom";
 import Loadable from "react-loadable";
 import { BrowserRouter } from "react-router-dom";
-import App from "./components/App";
+import App from "./App";
 
 Loadable.preloadReady().then(() => {
   ReactDOM.hydrate(
