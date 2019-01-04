@@ -1,7 +1,8 @@
 const createFullPageHtml = (appHtml, bundles) =>
   `<html>
     <head>
-      <title>React Hot Loader Minimal Boilerplate</title>
+      <link rel="icon" href="assets/favicon.ico">
+      <title>React SSR and code-splitting template</title>
     </head>
     <body>
       <div id="root">${appHtml}</div>

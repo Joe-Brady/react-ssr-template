@@ -1,6 +1,7 @@
 const path = require("path");
 const webpack = require("webpack");
 const { ReactLoadablePlugin } = require("react-loadable/webpack");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 const developmentMode = process.env.NODE_ENV === "development";
 
@@ -23,7 +24,13 @@ const webpackConfigClient = {
     }),
     new ReactLoadablePlugin({
       filename: "./dist/react-loadable.json"
-    })
+    }),
+    new CopyWebpackPlugin([
+      {
+        from: "./client/assets",
+        to: "assets"
+      }
+    ])
   ]
 };
 
