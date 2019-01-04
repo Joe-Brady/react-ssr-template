@@ -1,25 +1,37 @@
 import { hot } from "react-hot-loader/root";
-import Loadable from "react-loadable";
-import Loading from "./Loading";
-import RandomNumber from "./RandomNumber";
+import Nav from "./Nav";
+import Main from "./Main";
 
-const ClockLoadable = Loadable({
-  loader: () => import("./Clock" /* webpackChunkName: 'Clock' */),
-  loading: () => Loading
-});
+import { createGlobalStyle, ThemeProvider } from "styled-components";
 
-const ChangeStateLoadable = Loadable({
-  loader: () => import("./ChangeState" /* webpackChunkName: 'ChangeState' */),
-  loading: () => Loading
-});
+const GlobalStyle = createGlobalStyle`
+  html, body {
+    margin: 0px;
+    color: ${props => props.theme.colours.primary};
+    font-family: sans-serif;
+    font-size: 16px;
+  }
+`;
+
+const theme = {
+  colours: { primary: "darkslategrey", secondary: "green" },
+  spacing: {
+    x_large: "10rem",
+    large: "5rem",
+    medium: "2rem",
+    small: "1rem",
+    x_small: "0.5rem"
+  }
+};
 
 const App = () => (
-  <div>
-    <p>This is App.js</p>
-    <RandomNumber />
-    <ChangeStateLoadable />
-    <ClockLoadable />
-  </div>
+  <ThemeProvider theme={theme}>
+    <React.Fragment>
+      <GlobalStyle />
+      <Nav />
+      <Main />
+    </React.Fragment>
+  </ThemeProvider>
 );
 
 export default hot(App);

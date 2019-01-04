@@ -1,10 +1,12 @@
 import express from "express";
 import ReactDOMServer from "react-dom/server";
+import { ServerStyleSheet } from "styled-components";
 import Loadable from "react-loadable";
 import { getBundles } from "react-loadable/webpack";
 import stats from "../dist/react-loadable.json";
 import createFullPageHtml from "../client/document";
 import App from "../client/components/App";
+import { StaticRouter } from "react-router-dom";
 
 const app = express();
 
@@ -24,23 +26,31 @@ if (developmentMode) {
 app.use(express.static("dist"));
 
 app.get("*", (req, res) => {
+  const sheet = new ServerStyleSheet();
+  const context = {};
   const modules = [];
 
   const appHtml = ReactDOMServer.renderToString(
-    <Loadable.Capture report={moduleName => modules.push(moduleName)}>
-      <App />
-    </Loadable.Capture>
+    sheet.collectStyles(
+      <Loadable.Capture report={moduleName => modules.push(moduleName)}>
+        <StaticRouter location={req.url} context={context}>
+          <App />
+        </StaticRouter>
+      </Loadable.Capture>
+    )
   );
+
+  const styles = sheet.getStyleTags();
 
   const bundles = getBundles(stats, modules);
 
-  const pageHtml = createFullPageHtml(appHtml, bundles);
+  const pageHtml = createFullPageHtml(appHtml, bundles, styles);
 
   res.send(pageHtml);
 });
 
 Loadable.preloadAll().then(() => {
-  app.listen(3000, () => {
-    console.log("Running on http://localhost:3000/");
+  app.listen(4000, () => {
+    console.log("Running on http://localhost:4000/");
   });
 });

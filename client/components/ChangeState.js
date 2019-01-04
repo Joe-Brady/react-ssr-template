@@ -22,7 +22,7 @@ class ChangeState extends React.Component {
   render() {
     return (
       <div>
-        <h1>Change state component:</h1>
+        <h2>Change state component:</h2>
         <p>Current count: {this.state.counter}</p>
         <button onClick={this.addOne}>Add one</button>
         <button onClick={this.subtractOne}>Subtract one</button>

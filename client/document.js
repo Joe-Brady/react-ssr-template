@@ -1,9 +1,10 @@
-const createFullPageHtml = (appHtml, bundles) =>
+const createFullPageHtml = (appHtml, bundles, styles) =>
   `<html>
     <head>
       <link rel="icon" href="assets/favicon.ico">
       <title>React SSR and code-splitting template</title>
-    </head>
+      ${styles}
+      </head>
     <body>
       <div id="root">${appHtml}</div>
       ${bundles
