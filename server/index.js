@@ -1,10 +1,11 @@
 import express from "express";
 import React from "react";
 import ReactDOMServer from "react-dom/server";
-import App from "../client/components/App";
 import Loadable from "react-loadable";
 import { getBundles } from "react-loadable/webpack";
 import stats from "../dist/react-loadable.json";
+import createFullPageHtml from "../client/document";
+import App from "../client/components/App";
 
 const app = express();
 
@@ -24,32 +25,19 @@ if (developmentMode) {
 app.use(express.static("dist"));
 
 app.get("*", (req, res) => {
-  let modules = [];
+  const modules = [];
 
-  let html = ReactDOMServer.renderToString(
+  const appHtml = ReactDOMServer.renderToString(
     <Loadable.Capture report={moduleName => modules.push(moduleName)}>
       <App />
     </Loadable.Capture>
   );
 
-  let bundles = getBundles(stats, modules);
+  const bundles = getBundles(stats, modules);
 
-  res.send(
-    `<html>
-      <head>
-        <title>React Hot Loader Minimal Boilerplate</title>
-      </head>
-      <body>
-        <div id="root">${html}</div>
-        ${bundles
-          .map(bundle => {
-            return `<script src="${bundle.file}"></script>`;
-          })
-          .join("\n")}
-        <script src="client.bundle.js"></script>
-      </body>
-    </html>`
-  );
+  const pageHtml = createFullPageHtml(appHtml, bundles);
+
+  res.send(pageHtml);
 });
 
 Loadable.preloadAll().then(() => {
