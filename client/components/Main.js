@@ -8,13 +8,13 @@ const StyledMain = styled("main")`
 `;
 
 const HomeLoadable = Loadable({
-  loader: () => import("../pages/home" /* webpackChunkName: 'page_home' */),
+  loader: () => import("../pages/home" /* webpackChunkName: 'page__home' */),
   loading: () => Loading
 });
 
 const SomePageLoadable = Loadable({
   loader: () =>
-    import("../pages/some-page" /* webpackChunkName: 'page_some-page' */),
+    import("../pages/some-page" /* webpackChunkName: 'page__some-page' */),
   loading: () => Loading
 });
 

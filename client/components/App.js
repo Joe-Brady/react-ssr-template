@@ -14,7 +14,12 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const theme = {
-  colours: { primary: "darkslategrey", secondary: "green" },
+  colours: {
+    primary: "darkslategrey",
+    secondary: "white",
+    accent: "#81d06a",
+    subtle: "lightslategrey"
+  },
   spacing: {
     x_large: "10rem",
     large: "5rem",
