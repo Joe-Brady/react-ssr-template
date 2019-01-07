@@ -3,18 +3,18 @@
 ## Installation
 
 ```
-yarn
+npm install
 ```
 
 ## Development mode (with hot-reloading)
 
 ```
-yarn dev
+npm run dev
 ```
 
 ## Production mode
 
 ```
-yarn build
-yarn start
+npm run build
+npm start
 ```
