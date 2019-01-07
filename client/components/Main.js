@@ -9,18 +9,18 @@ const StyledMain = styled("main")`
 
 const HomeLoadable = Loadable({
   loader: () => import("../pages/home" /* webpackChunkName: 'page__home' */),
-  loading: () => Loading
+  loading: () => <Loading />
 });
 
 const TabsLoadable = Loadable({
   loader: () => import("../pages/tabs" /* webpackChunkName: 'page__tabs' */),
-  loading: () => Loading
+  loading: () => <Loading />
 });
 
 const SomePageLoadable = Loadable({
   loader: () =>
     import("../pages/some-page" /* webpackChunkName: 'page__some-page' */),
-  loading: () => Loading
+  loading: () => <Loading />
 });
 
 const Main = () => (

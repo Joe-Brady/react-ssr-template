@@ -5,7 +5,7 @@ import { HintText, ContentGroup } from "../components/atoms";
 const ClockLoadable = Loadable({
   loader: () =>
     import("../components/code-split/Clock" /* webpackChunkName: 'component__clock' */),
-  loading: () => Loading
+  loading: () => <Loading />
 });
 
 const Home = () => (
