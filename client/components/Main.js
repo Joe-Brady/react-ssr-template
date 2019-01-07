@@ -12,6 +12,11 @@ const HomeLoadable = Loadable({
   loading: () => Loading
 });
 
+const TabsLoadable = Loadable({
+  loader: () => import("../pages/tabs" /* webpackChunkName: 'page__tabs' */),
+  loading: () => Loading
+});
+
 const SomePageLoadable = Loadable({
   loader: () =>
     import("../pages/some-page" /* webpackChunkName: 'page__some-page' */),
@@ -21,6 +26,7 @@ const SomePageLoadable = Loadable({
 const Main = () => (
   <StyledMain>
     <Route path="/" exact component={HomeLoadable} />
+    <Route path="/tabs/" component={TabsLoadable} />
     <Route path="/some-page/" component={SomePageLoadable} />
   </StyledMain>
 );
