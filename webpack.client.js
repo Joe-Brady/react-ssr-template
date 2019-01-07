@@ -27,8 +27,8 @@ const webpackConfigClient = {
     }),
     new CopyWebpackPlugin([
       {
-        from: "./client/assets",
-        to: "assets"
+        from: "./client/static",
+        to: "static"
       }
     ])
   ]

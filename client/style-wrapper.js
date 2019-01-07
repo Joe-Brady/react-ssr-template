@@ -1,4 +1,5 @@
 import { createGlobalStyle, ThemeProvider } from "styled-components";
+import NormalizeCSS from "./assets/normalize-css";
 
 const theme = {
   colours: {
@@ -17,11 +18,12 @@ const theme = {
 };
 
 const GlobalStyles = createGlobalStyle`
+  ${NormalizeCSS};
+  
   html, body {
-    margin: 0px;
-    color: ${props => props.theme.colours.primary};
     font-family: sans-serif;
     font-size: 16px;
+    color: ${props => props.theme.colours.primary};
   }
 `;
 
