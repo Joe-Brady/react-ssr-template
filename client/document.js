@@ -1,9 +1,9 @@
-const createFullPageHtml = (appHtml, bundles, styles) =>
+const createFullPageHtml = (appHtml, appBundles, appStyles) =>
   `<html>
     <head>
       <link rel="icon" href="static/favicon.ico">
       <title>React SSR and code-splitting template</title>
-      ${styles}
+      ${appStyles}
       <meta
         name="viewport"
         content="minimum-scale=1,initial-scale=1, width=device-width, shrink-to-fit=no"
@@ -11,7 +11,7 @@ const createFullPageHtml = (appHtml, bundles, styles) =>
     </head>
     <body>
       <div id="root">${appHtml}</div>
-      ${bundles
+      ${appBundles
         .map(bundle => {
           return `<script src="${bundle.file}"></script>`;
         })
