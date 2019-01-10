@@ -1,3 +1,5 @@
+import React from "react";
+import PropTypes from "prop-types";
 import { createGlobalStyle, ThemeProvider } from "styled-components";
 import NormalizeCSS from "./assets/normalize-css";
 
@@ -35,5 +37,9 @@ const StyleWrapper = props => (
     </React.Fragment>
   </ThemeProvider>
 );
+
+StyleWrapper.propTypes = {
+  children: PropTypes.node
+};
 
 export default StyleWrapper;
