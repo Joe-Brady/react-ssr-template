@@ -7,7 +7,8 @@
     "build": "npm run build:client && npm run build:server",
     "build:start": "npm run build && npm start",
     "start": "node ./dist/server.bundle.js",
-    "dev": "NODE_ENV=development npm run build && node ./dist/server.bundle.js"
+    "dev": "NODE_ENV=development npm run build && node ./dist/server.bundle.js",
+    "test:unit": "jest ./client ./server --coverage"
   },
   "license": "ISC",
   "dependencies": {
@@ -23,8 +24,11 @@
     "@babel/plugin-syntax-dynamic-import": "7.2.0",
     "@babel/preset-env": "7.2.3",
     "@babel/preset-react": "7.0.0",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-jest": "23.6.0",
     "babel-loader": "8.0.4",
     "copy-webpack-plugin": "4.6.0",
+    "jest": "23.6.0",
     "react-hot-loader": "4.6.3",
     "webpack": "4.28.3",
     "webpack-cli": "3.2.0",
