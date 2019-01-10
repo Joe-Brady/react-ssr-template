@@ -1,4 +1,5 @@
 const jestConfig = {
+  setupFiles: ["<rootDir>/jest.setup.js"],
   testPathIgnorePatterns: ["<rootDir>/node_modules/"],
   collectCoverageFrom: [
     "client/**/*.{js}",
