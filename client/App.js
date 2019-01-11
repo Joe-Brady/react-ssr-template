@@ -1,6 +1,6 @@
 import { hot } from "react-hot-loader/root";
 import { Nav, Main } from "./components";
-import StyleWrapper from "./style-wrapper";
+import StyleWrapper from "./StyleWrapper";
 import Routes from "./Routes";
 
 const App = () => (
