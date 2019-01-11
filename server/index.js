@@ -11,8 +11,11 @@ if (developmentMode) {
   const config = require("../webpack.client.js");
   const webpackDevMiddleware = require("webpack-dev-middleware");
   const webpackHotMiddleware = require("webpack-hot-middleware");
+  const DashboardPlugin = require("webpack-dashboard/plugin");
 
   const compiler = webpack(config);
+  compiler.apply(new DashboardPlugin());
+
   app.use(webpackDevMiddleware(compiler));
   app.use(webpackHotMiddleware(compiler));
 }

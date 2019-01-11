@@ -6,8 +6,8 @@
     "build:server": "webpack --config webpack.server.js",
     "build": "npm run build:client && npm run build:server",
     "build:start": "npm run build && npm start",
-    "start": "node ./dist/server.bundle.js",
-    "dev": "NODE_ENV=development npm run build && node ./dist/server.bundle.js",
+    "start": "NODE_ENV=production node ./dist/server.bundle.js",
+    "dev": "NODE_ENV=development npm run build && webpack-dashboard -- node ./dist/server.bundle.js",
     "test:unit": "jest ./client ./server --coverage",
     "lint": "eslint ./client ./server"
   },
@@ -38,6 +38,7 @@
     "react-hot-loader": "4.6.3",
     "webpack": "4.28.3",
     "webpack-cli": "3.2.0",
+    "webpack-dashboard": "^2.0.0",
     "webpack-dev-middleware": "3.4.0",
     "webpack-hot-middleware": "2.21.0",
     "webpack-node-externals": "^1.7.2"
