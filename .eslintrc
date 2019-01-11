@@ -3,6 +3,11 @@
     "browser": true,
     "node": true
   },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
   "plugins": ["jsx-a11y"],
   "extends": [
     "eslint:recommended",

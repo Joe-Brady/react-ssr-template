@@ -6,7 +6,7 @@ import { ContentGroup } from "../components/atoms";
 const ClockLoadable = Loadable({
   loader: () =>
     import("../components/code-split/Clock" /* webpackChunkName: 'component__clock' */),
-  loading: () => <Loading />
+  loading: Loading
 });
 
 class Tabs extends React.Component {
@@ -40,7 +40,7 @@ class Tabs extends React.Component {
               Check the inspector Network or Sources tab. Note that the clock
               component chunk has not yet been loaded.
             </p>
-            <p>Now click on "Switch to tab 2".</p>
+            <p>{`Now click on "Switch to tab 2".`}</p>
           </div>
         )}
 
